@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>วิเคราะห์สภาพอากาศจากภาพ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>AI วิเคราะห์สภาพอากาศจากภาพ</h2>
+        <input type="file" id="imageInput">
+        <button onclick="uploadImage()">วิเคราะห์</button>
+        <div id="resultText" class="result"></div>
+        <img id="preview" style="display:none;" />
+    </div>
+
+    <script>
+        function uploadImage() {
+            const input = document.getElementById('imageInput');
+            const file = input.files[0];
+            const resultText = document.getElementById('resultText');
+            const preview = document.getElementById('preview');
+
+            if (!file) {
+                resultText.innerText = "กรุณาเลือกไฟล์ภาพ";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                resultText.innerText = data.result;
+                preview.src = "data:image/png;base64," + data.image;
+                preview.style.display = "block";
+            })
+            .catch(err => {
+                resultText.innerText = "เกิดข้อผิดพลาด";
+                preview.style.display = "none";
+            });
+        }
+    </script>
+</body>
+</html>

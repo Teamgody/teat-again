@@ -1,0 +1,56 @@
+body {
+    font-family: 'Sarabun', sans-serif;
+    background: linear-gradient(to right, #f0f8ff, #dff0ea);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('26131.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    max-width: 600px;
+    margin: 100px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+input[type="file"] {
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.result {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+img {
+    margin-top: 1rem;
+    max-width: 100%;
+    border-radius: 10px;
+}
